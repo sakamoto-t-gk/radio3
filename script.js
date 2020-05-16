@@ -63,7 +63,12 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
 
   // Register callee handler
   peer.on('call', mediaConnection => {
-    mediaConnection.answer(localStream);
+
+    const answerOption = {
+      videoCodec: 'H264',
+    };
+
+    mediaConnection.answer(localStream, answerOption);
 
     mediaConnection.on('stream', async stream => {
       // Render remote stream for callee
