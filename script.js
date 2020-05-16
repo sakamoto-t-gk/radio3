@@ -66,6 +66,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
 
     const answerOption = {
       videoCodec: 'H264',
+      videoBandwidth: 100,
     };
 
     mediaConnection.answer(localStream, answerOption);
