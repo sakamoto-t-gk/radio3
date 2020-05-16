@@ -43,7 +43,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
     }
 
     const mediaConnection = peer.call(remoteId.value, localStream,{
-      videoBandwidth: 100,
+      videoBandwidth: 10,
       audioBandwidth: 500
     });
 
@@ -68,7 +68,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   peer.on('call', mediaConnection => {
 
     const answerOption = {
-      videoBandwidth: 100,
+      videoBandwidth: 10,
       audioBandwidth: 500
     };
 
