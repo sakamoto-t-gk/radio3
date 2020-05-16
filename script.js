@@ -29,7 +29,7 @@ const Peer = window.Peer;
   await localVideo.play().catch(console.error);
 
   const peer = (window.peer = new Peer({
-    key: window.6b1e337e-0e14-46e7-8fc2-44af3bb36d8b,
+    key: '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b',
     debug: 3,
   }));
 
