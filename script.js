@@ -42,7 +42,10 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
       return;
     }
 
-    const mediaConnection = peer.call(remoteId.value, localStream);
+    const mediaConnection = peer.call(remoteId.value, localStream,{
+      videoBandwidth: 100,
+      audioBandwidth: 500
+    });
 
     mediaConnection.on('stream', async stream => {
       // Render remote stream for caller
@@ -65,8 +68,8 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   peer.on('call', mediaConnection => {
 
     const answerOption = {
-      videoCodec: 'H264',
       videoBandwidth: 100,
+      audioBandwidth: 500
     };
 
     mediaConnection.answer(localStream, answerOption);
