@@ -1,4 +1,5 @@
 const Peer = window.Peer;
+window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
@@ -29,7 +30,7 @@ const Peer = window.Peer;
   await localVideo.play().catch(console.error);
 
   const peer = (window.peer = new Peer({
-    key: '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b',
+    key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
 
