@@ -43,9 +43,14 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
     }
 
     const mediaConnection = peer.call(remoteId.value, localStream,{
+<<<<<<< HEAD
       videoCodec: 'VP8',
       audioCodec: 'G.722',
       videoBandwidth: 100,
+=======
+      videoBandwidth: 10,
+      audioBandwidth: 500
+>>>>>>> parent of f049998... codec変更
     });
 
     mediaConnection.on('stream', async stream => {
