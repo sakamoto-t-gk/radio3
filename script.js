@@ -46,7 +46,6 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
       videoCodec: 'VP8',
       audioCodec: 'G722',
       videoBandwidth: 100,
-      audioBandwidth: 500
     });
 
     mediaConnection.on('stream', async stream => {
@@ -73,7 +72,6 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
       videoCodec: 'VP8',
       audioCodec: 'G722',
       videoBandwidth: 100,
-      audioBandwidth: 500
     };
 
     mediaConnection.answer(localStream, answerOption);
