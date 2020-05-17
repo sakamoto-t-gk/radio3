@@ -1,6 +1,6 @@
-const Peer = window.Peer;
+ï»¿const Peer = window.Peer;
 window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
- 
+
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
   const localId = document.getElementById('js-local-id');
@@ -17,13 +17,13 @@ const microphoneStatus = document.getElementById('microphone-status');
 toggleCamera.addEventListener('click', () => {
   const videoTracks = localStream.getVideoTracks()[0];
   videoTracks.enabled = !videoTracks.enabled;
-  cameraStatus.textContent = `ƒJƒƒ‰${videoTracks.enabled ? 'ON' : 'OFF'}`;
+  cameraStatus.textContent = `ã‚«ãƒ¡ãƒ©${videoTracks.enabled ? 'ON' : 'OFF'}`;
 });
 
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
-  microphoneStatus.textContent = `ƒ}ƒCƒN${audioTracks.enabled ? 'ON' : 'OFF'}`;
+  microphoneStatus.textContent = `ãƒã‚¤ã‚¯${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
 
   meta.innerText = `
@@ -34,7 +34,7 @@ toggleMicrophone.addEventListener('click', () => {
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
-      video: { facingMode: 'user' }, // ‰t»‘¤‚ÌƒJƒƒ‰
+      video: { facingMode: 'user' }, // æ¶²æ™¶å´ã®ã‚«ãƒ¡ãƒ©
     })
     .catch(console.error);
 
