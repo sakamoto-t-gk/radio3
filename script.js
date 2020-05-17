@@ -33,7 +33,11 @@ toggleMicrophone.addEventListener('click', () => {
 
   const localStream = await navigator.mediaDevices
     .getUserMedia({
-      audio: true,
+      audio: {
+        echoCancellation : true,
+        echoCancellationType : 'system',
+        noiseSuppression : false
+      },
       video: { facingMode: 'user' }, // 液晶側のカメラ
     })
     .catch(console.error);
