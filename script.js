@@ -17,13 +17,13 @@ const microphoneStatus = document.getElementById('microphone-status');
 toggleCamera.addEventListener('click', () => {
   const videoTracks = localStream.getVideoTracks()[0];
   videoTracks.enabled = !videoTracks.enabled;
-  cameraStatus.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+  cameraStatus.textContent = `繧ｫ繝｡繝ｩ${videoTracks.enabled ? 'ON' : 'OFF'}`;
 });
 
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
-  microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
+  microphoneStatus.textContent = `繝槭う繧ｯ${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
 
   meta.innerText = `
@@ -34,7 +34,7 @@ toggleMicrophone.addEventListener('click', () => {
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
-      video: { facingMode: 'user' }, // 液晶側のカメラ
+      video: { facingMode: 'user' }, // 豸ｲ譎ｶ蛛ｴ縺ｮ繧ｫ繝｡繝ｩ
     })
     .catch(console.error);
 
