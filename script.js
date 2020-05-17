@@ -34,12 +34,7 @@ toggleMicrophone.addEventListener('click', () => {
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
-      video: { 
-        facingMode: 'user', // 液晶側のカメラ
-        width: 640, 
-        height: 480,
-        frameRate: { min: 10, max: 15 } 
-       },
+      video: { facingMode: 'user' }, // 液晶側のカメラ
     })
     .catch(console.error);
 
