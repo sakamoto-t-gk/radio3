@@ -46,7 +46,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
       videoCodec: 'VP8',
       audioCodec: 'Opus',
       videoBandwidth: 100,
-      audioBandwidth: 500
+      audioBandwidth: 500,
     }
     );
 
@@ -71,11 +71,10 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   peer.on('call', mediaConnection => {
 
     const answerOption = {
-      videoCodec: 'H264',
       videoCodec: 'VP8',
       audioCodec: 'Opus',
       videoBandwidth: 100,
-      audioBandwidth: 500
+      audioBandwidth: 500,
     };
 
     mediaConnection.answer(localStream, answerOption);
