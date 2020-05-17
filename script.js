@@ -10,6 +10,21 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const remoteId = document.getElementById('js-remote-id');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
+const toggleCamera = document.getElementById('js-toggle-camera');
+const toggleMicrophone = document.getElementById('js-toggle-microphone');
+const cameraStatus = document.getElementById('camera-status');
+const microphoneStatus = document.getElementById('microphone-status');
+toggleCamera.addEventListener('click', () => {
+  const videoTracks = localStream.getVideoTracks()[0];
+  videoTracks.enabled = !videoTracks.enabled;
+  cameraStatus.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+});
+
+toggleMicrophone.addEventListener('click', () => {
+  const audioTracks = localStream.getAudioTracks()[0];
+  audioTracks.enabled = !audioTracks.enabled;
+  microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
+});
 
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -19,12 +34,12 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
-      video: true,
+      video: { facingMode: 'user' }, // 液晶側のカメラ
     })
     .catch(console.error);
 
   // Render local stream
-  localVideo.muted = true;
+  localVideo.muted = false;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
