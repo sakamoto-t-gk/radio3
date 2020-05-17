@@ -39,7 +39,7 @@ toggleMicrophone.addEventListener('click', () => {
     .catch(console.error);
 
   // Render local stream
-  localVideo.muted = false;
+  localVideo.muted = true;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
