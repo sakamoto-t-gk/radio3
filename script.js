@@ -7,8 +7,8 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const callTrigger = document.getElementById('js-call-trigger');
   const closeTrigger = document.getElementById('js-close-trigger');
   const remoteVideo = document.getElementById('js-remote-stream');
-  const remoteId = document.getElementById('js-remote-id');
-//  const remoteId = document.getElementById('sel1').textContent;
+//  const remoteId = document.getElementById('js-remote-id');
+  const remoteId = document.getElementById('sel1').textContent;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
 const toggleCamera = document.getElementById('js-toggle-camera');
@@ -61,6 +61,7 @@ toggleMicrophone.addEventListener('click', () => {
     if (!peer.open) {
       return;
     }
+    document.getElementById("js-remote-id").value = document.getElementById("sel1").textContent;
     const mediaConnection = peer.call(remoteId.value, localStream,{
       videoBandwidth: 100,
       audioBandwidth: 500,
