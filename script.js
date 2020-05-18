@@ -59,7 +59,7 @@ toggleMicrophone.addEventListener('click', () => {
   callTrigger.addEventListener('click', () => {
     // Note that you need to ensure the peer has connected to signaling server
     // before using methods of peer instance.
-remote2Id = remoteId.value;
+remote2Id.value = remoteId.value;
     if (!peer.open) {
       return;
     }
