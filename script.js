@@ -8,7 +8,6 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const closeTrigger = document.getElementById('js-close-trigger');
   const remoteVideo = document.getElementById('js-remote-stream');
 //  const remoteId = document.getElementById('js-remote-id');
-  const remote2Id = document.getElementById('js-remote-id');
   const remoteId = document.getElementById('sel1');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
@@ -59,7 +58,6 @@ toggleMicrophone.addEventListener('click', () => {
   callTrigger.addEventListener('click', () => {
     // Note that you need to ensure the peer has connected to signaling server
     // before using methods of peer instance.
-remote2Id.value = remoteId.value;
     if (!peer.open) {
       return;
     }
@@ -139,19 +137,7 @@ sl.appendChild(opt);
 
 //--------
 function createSelectBox(){
-  //連想配列の配列
-  var arr = [
-    {val:"01", txt:"ポチ"},
-    {val:"02", txt:"タマ"},
-    {val:"03", txt:"モモ"}
-  ];
- 
-  //連想配列をループ処理で値を取り出してセレクトボックスにセットする
-  for(var i=0;i<arr.length;i++){
-    let op = document.createElement("option");
-    op.value = arr[i].val;  //value値
-    op.text = arr[i].txt;   //テキスト値
-    document.getElementById("sel1").appendChild(op);
-  }
+
+document.getElementById("js-remote-id").value = "test";
 };
 //--------
