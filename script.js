@@ -85,7 +85,8 @@ toggleMicrophone.addEventListener('click', () => {
 //  peer.once('open', id => (localId.textContent = id));
 //--------
   peer.once('open', id => {
-    localId.textContent = id;
+//    localId.textContent = id;
+    localId.textContent = peer.listAllPeers();
 
 peer.listAllPeers(function(list){
 
