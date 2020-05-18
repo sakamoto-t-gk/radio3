@@ -8,7 +8,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const closeTrigger = document.getElementById('js-close-trigger');
   const remoteVideo = document.getElementById('js-remote-stream');
 //  const remoteId = document.getElementById('js-remote-id');
-  const remoteId = document.getElementById('sel1').text;
+  const remoteId = document.getElementById('sel1').value;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
 const toggleCamera = document.getElementById('js-toggle-camera');
