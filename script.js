@@ -90,7 +90,7 @@ toggleMicrophone.addEventListener('click', () => {
 peer.listAllPeers(function(list){
 
 list.forEach(function(e, i) {
-if(e!=id){
+if(e!=localId.textContent){
 var sl = document.getElementById("sel1");
 var opt = document.createElement('option');
 opt.setAttribute('value', i);
