@@ -84,6 +84,21 @@ toggleMicrophone.addEventListener('click', () => {
 
   peer.once('open', id => (localId.textContent = id));
 
+//--------
+peer.listAllPeers(function(list){
+
+list.forEach(function(e, i) {
+var sl = document.getElementById("sel1");
+var opt = document.createElement('option');
+opt.setAttribute('value', i);
+opt.innerHTML = e;
+sl.appendChild(opt);
+});
+
+});
+//--------
+
+
   // Register callee handler
   peer.on('call', mediaConnection => {
 
