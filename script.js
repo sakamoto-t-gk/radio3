@@ -94,11 +94,11 @@ list.forEach(function(e, i) {
 if(e!=localId.textContent){
 var sl = document.getElementById("sel1");
 var opt = document.createElement('option');
-opt.setAttribute('value', i);
+opt.setAttribute('value', e);
 opt.innerHTML = e;
 sl.appendChild(opt);
 }
-document.getElementById("js-remote-id").value = document.getElementById("sel1").textContent;
+document.getElementById("js-remote-id").value = document.getElementById("sel1").value;
 });
 
 });
@@ -140,6 +140,6 @@ document.getElementById("js-remote-id").value = document.getElementById("sel1").
 //--------
 function createSelectBox(){
 
-document.getElementById("js-remote-id").value = document.getElementById("sel1").textContent;
+document.getElementById("js-remote-id").value = document.getElementById("sel1").value;
 };
 //--------
