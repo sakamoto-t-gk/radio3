@@ -6,6 +6,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const localId = document.getElementById('js-local-id');
   const callTrigger = document.getElementById('js-call-trigger');
   const closeTrigger = document.getElementById('js-close-trigger');
+  const refleshTrigger = document.getElementById('js-reflesh-trigger');
   const remoteVideo = document.getElementById('js-remote-stream');
   const remoteId = document.getElementById('js-remote-id');
 //  const remoteId = document.getElementById('sel1');
@@ -87,6 +88,7 @@ toggleMicrophone.addEventListener('click', () => {
 //--------
   peer.once('open', id => {
     localId.textContent = id;
+    refleshTrigger.addEventListener('click', () => peer.listAllPeers());
 
 peer.listAllPeers(function(list){
 
