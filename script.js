@@ -7,9 +7,9 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const callTrigger = document.getElementById('js-call-trigger');
   const closeTrigger = document.getElementById('js-close-trigger');
   const remoteVideo = document.getElementById('js-remote-stream');
-  const remoteId = document.getElementById('js-remote-id');
-//const num = document.sel1.selectedIndex;
-//const remoteId = document.sel1.options[num].value;
+//  const remoteId = document.getElementById('js-remote-id');
+const num = document.sel1.selectedIndex;
+const remoteId = document.sel1.options[num].value;
 
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
