@@ -138,6 +138,6 @@ sl.appendChild(opt);
 //--------
 function createSelectBox(){
 
-document.getElementById("js-remote-id").value = document.getElementById("sel1").text;
+document.getElementById("js-remote-id").value = document.getElementById("sel1").innerHTML;
 };
 //--------
