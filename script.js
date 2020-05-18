@@ -61,7 +61,7 @@ toggleMicrophone.addEventListener('click', () => {
     if (!peer.open) {
       return;
     }
-    remoteId.value = document.getElementById("sel1").textContent;
+    remoteId.value = document.getElementById("sel1").value;
     const mediaConnection = peer.call(remoteId.value, localStream,{
       videoBandwidth: 100,
       audioBandwidth: 500,
