@@ -38,17 +38,24 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
     microphoneStatus.textContent = `マイク ${audioTracks.enabled ? 'ON' : 'OFF'}`;
   });
 
-
-//        echoCancellation : true,
-//        echoCancellationType : 'system',
-//        noiseSuppression : true
 /*
+  const localStream = await navigator.mediaDevices
+    .getUserMedia({
+      audio: {
+        echoCancellation : true,
+        echoCancellationType : 'system',
+        noiseSuppression : true
+      },
+      video: { facingMode: 'user' }, // 液晶側のカメラ
+    })
+    .catch(console.error);
+*/
   toggleEcho.addEventListener('click', () => {
-    const audioTracks = localStream.getAudioTracks()[0];
-    audioTracks.enabled = !audioTracks.enabled;
-    microphoneStatus.textContent = ` ${audioTracks.enabled ? 'ON' : 'OFF'}`;
+    const echoCancel = navigator.mediaDevices.getUserMedia.audio.echoCancellation;
+    echoCancel.enabled = !echoCancel.enabled;
+    echoStatus.textContent = ` ${echoCancel.enabled ? 'ON' : 'OFF'}`;
   });
-
+/*
   toggleEchotype.addEventListener('click', () => {
     const audioTracks = localStream.getAudioTracks()[0];
     audioTracks.enabled = !audioTracks.enabled;
@@ -65,6 +72,16 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
     UA: ${navigator.userAgent}
     SDK: ${sdkSrc ? sdkSrc.src : 'unknown'}
   `.trim();
+
+/*
+  const constraints = {
+    audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
+    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+  };
+  navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(gotDevices).catch(handleError);
+}
+
+*/
 
   const localStream = await navigator.mediaDevices
     .getUserMedia({
