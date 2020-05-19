@@ -37,7 +37,7 @@ toggleMicrophone.addEventListener('click', () => {
       audio: {
         echoCancellation : true,
         echoCancellationType : 'system',
-        noiseSuppression : false
+        noiseSuppression : true
       },
       video: { facingMode: 'user' }, // 液晶側のカメラ
     })
