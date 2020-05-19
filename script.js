@@ -17,13 +17,6 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const cameraStatus = document.getElementById('camera-status');
   const microphoneStatus = document.getElementById('microphone-status');
 
-  const toggleEcho = document.getElementById('js-toggle-echo');
-  const echoStatus = document.getElementById('echo-status');
-  const toggleEchotype = document.getElementById('js-toggle-echotype');
-  const echotypeStatus = document.getElementById('echotype-status');
-  const toggleNr = document.getElementById('js-toggle-nr');
-  const nrStatus = document.getElementById('nr-status');
-
 
 // カメラ・ミュートなどのボタン動作
   toggleCamera.addEventListener('click', () => {
@@ -38,36 +31,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
     microphoneStatus.textContent = `マイク ${audioTracks.enabled ? 'ON' : 'OFF'}`;
   });
 
-/*
-  const localStream = await navigator.mediaDevices
-    .getUserMedia({
-      audio: {
-        echoCancellation : true,
-        echoCancellationType : 'system',
-        noiseSuppression : true
-      },
-      video: { facingMode: 'user' }, // 液晶側のカメラ
-    })
-    .catch(console.error);
-*/
-  toggleEcho.addEventListener('click', () => {
-    const echoCancel = navigator.mediaDevices.getUserMedia.audio.echoCancellation;
-    echoCancel.enabled = !echoCancel.enabled;
-    echoStatus.textContent = ` ${echoCancel.enabled ? 'ON' : 'OFF'}`;
-  });
-/*
-  toggleEchotype.addEventListener('click', () => {
-    const audioTracks = localStream.getAudioTracks()[0];
-    audioTracks.enabled = !audioTracks.enabled;
-    microphoneStatus.textContent = `マイク ${audioTracks.enabled ? 'ON' : 'OFF'}`;
-  });
 
-  toggleNr.addEventListener('click', () => {
-    const audioTracks = localStream.getAudioTracks()[0];
-    audioTracks.enabled = !audioTracks.enabled;
-    microphoneStatus.textContent = `マイク ${audioTracks.enabled ? 'ON' : 'OFF'}`;
-  });
-*/
   meta.innerText = `
     UA: ${navigator.userAgent}
     SDK: ${sdkSrc ? sdkSrc.src : 'unknown'}
