@@ -11,22 +11,57 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
 //  const remoteId = document.getElementById('sel1');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-const toggleCamera = document.getElementById('js-toggle-camera');
-const toggleMicrophone = document.getElementById('js-toggle-microphone');
-const cameraStatus = document.getElementById('camera-status');
-const microphoneStatus = document.getElementById('microphone-status');
-toggleCamera.addEventListener('click', () => {
-  const videoTracks = localStream.getVideoTracks()[0];
-  videoTracks.enabled = !videoTracks.enabled;
+// カメラ・ミュートなどの設定変数
+  const toggleCamera = document.getElementById('js-toggle-camera');
+  const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  const cameraStatus = document.getElementById('camera-status');
+  const microphoneStatus = document.getElementById('microphone-status');
   cameraStatus.textContent = `カメラ ${videoTracks.enabled ? 'ON' : 'OFF'}`;
-});
 
-toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = localStream.getAudioTracks()[0];
-  audioTracks.enabled = !audioTracks.enabled;
-  microphoneStatus.textContent = `マイク ${audioTracks.enabled ? 'ON' : 'OFF'}`;
-});
+  const toggleEcho = document.getElementById('js-toggle-echo');
+  const echoStatus = document.getElementById('echo-status');
+  const toggleEchotype = document.getElementById('js-toggle-echotype');
+  const echotypeStatus = document.getElementById('echotype-status');
+  const toggleNr = document.getElementById('js-toggle-nr');
+  const nrStatus = document.getElementById('nr-status');
 
+
+// カメラ・ミュートなどのボタン動作
+  toggleCamera.addEventListener('click', () => {
+    const videoTracks = localStream.getVideoTracks()[0];
+    videoTracks.enabled = !videoTracks.enabled;
+    cameraStatus.textContent = `カメラ ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+
+  toggleMicrophone.addEventListener('click', () => {
+    const audioTracks = localStream.getAudioTracks()[0];
+    audioTracks.enabled = !audioTracks.enabled;
+    microphoneStatus.textContent = `マイク ${audioTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+
+
+//        echoCancellation : true,
+//        echoCancellationType : 'system',
+//        noiseSuppression : true
+/*
+  toggleEcho.addEventListener('click', () => {
+    const audioTracks = localStream.getAudioTracks()[0];
+    audioTracks.enabled = !audioTracks.enabled;
+    microphoneStatus.textContent = ` ${audioTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+
+  toggleEchotype.addEventListener('click', () => {
+    const audioTracks = localStream.getAudioTracks()[0];
+    audioTracks.enabled = !audioTracks.enabled;
+    microphoneStatus.textContent = `マイク ${audioTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+
+  toggleNr.addEventListener('click', () => {
+    const audioTracks = localStream.getAudioTracks()[0];
+    audioTracks.enabled = !audioTracks.enabled;
+    microphoneStatus.textContent = `マイク ${audioTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+*/
   meta.innerText = `
     UA: ${navigator.userAgent}
     SDK: ${sdkSrc ? sdkSrc.src : 'unknown'}
