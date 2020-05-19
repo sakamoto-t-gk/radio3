@@ -52,7 +52,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
       audio: {
         echoCancellation : true,
         echoCancellationType : 'system',
-        noiseSuppression : true
+        noiseSuppression : false
       },
       video: { facingMode: 'user' }, // 液晶側のカメラ
     })
