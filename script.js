@@ -26,7 +26,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
 
 
 // カメラ・ミュートなどのボタン動作
-  toggleCamera.addEventListener('click',function cameraOff())
+  toggleCamera.addEventListener('click',cameraOff());
   
   function cameraOff(){
     const videoTracks = localStream.getVideoTracks()[0];
