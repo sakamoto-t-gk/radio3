@@ -16,9 +16,6 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const cameraStatus = document.getElementById('camera-status');
   const microphoneStatus = document.getElementById('microphone-status');
-    const videoTracks = localStream.getVideoTracks()[0];
-    videoTracks.enabled = !videoTracks.enabled;
-  cameraStatus.textContent = `カメラ ${videoTracks.enabled ? 'ON' : 'OFF'}`;
 
   const toggleEcho = document.getElementById('js-toggle-echo');
   const echoStatus = document.getElementById('echo-status');
@@ -29,12 +26,21 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
 
 
 // カメラ・ミュートなどのボタン動作
+  toggleCamera.addEventListener('click', () => function cameraOff())
+  
+  function cameraOff(){
+    const videoTracks = localStream.getVideoTracks()[0];
+    videoTracks.enabled = !videoTracks.enabled;
+    cameraStatus.textContent = `カメラ ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+  };
+
+/*
   toggleCamera.addEventListener('click', () => {
     const videoTracks = localStream.getVideoTracks()[0];
     videoTracks.enabled = !videoTracks.enabled;
     cameraStatus.textContent = `カメラ ${videoTracks.enabled ? 'ON' : 'OFF'}`;
   });
-
+*/
   toggleMicrophone.addEventListener('click', () => {
     const audioTracks = localStream.getAudioTracks()[0];
     audioTracks.enabled = !audioTracks.enabled;
