@@ -9,9 +9,6 @@
   <body>
     <div class="container">
       <h1 class="heading">ラジオ中継テスト</h1>
-      <p class="note">
-        相手のIDを入力して接続ボタンを押してください。
-      </p>
       <div class="p2p-media">
         <div class="video-stream">
           <video id="js-remote-stream" style="width: 300px;" autoplay></video>
@@ -24,8 +21,10 @@
           <button id="js-close-trigger">終了</button>
         </div>
         <div class="test">
-  <select id="sel1" onChange="createSelectBox();"></select>
-  <input type="button" value=" ボタン " onclick="createSelectBox();" />
+          <p class="note">
+            相手のIDを選択して接続ボタンを押してください。
+          </p>
+          <select id="sel1" onChange="createSelectBox();"></select>
         </div>
 
 <div class="toggle-mute">

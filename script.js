@@ -1,5 +1,14 @@
-﻿const Peer = window.Peer;
+﻿//=============================================================
+// API-IDの設定
+//=============================================================
+
+
+const Peer = window.Peer;
 window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
+
+//=============================================================
+// メインルーチン
+//=============================================================
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
@@ -8,10 +17,8 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
   const closeTrigger = document.getElementById('js-close-trigger');
   const remoteVideo = document.getElementById('js-remote-stream');
   const remoteId = document.getElementById('js-remote-id');
-//  const remoteId = document.getElementById('sel1');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-// カメラ・ミュートなどの設定変数
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const cameraStatus = document.getElementById('camera-status');
@@ -37,16 +44,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
     SDK: ${sdkSrc ? sdkSrc.src : 'unknown'}
   `.trim();
 
-/*
-  const constraints = {
-    audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
-    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
-  };
-  navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(gotDevices).catch(handleError);
-}
-
-*/
-
+//■映像音声の設定
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: {
@@ -69,7 +67,7 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
     debug: 3,
   }));
 
-  // Register caller handler
+//■接続・切断ボタン処理
   callTrigger.addEventListener('click', () => {
     // Note that you need to ensure the peer has connected to signaling server
     // before using methods of peer instance.
@@ -98,32 +96,31 @@ window.__SKYWAY_KEY__ = '6b1e337e-0e14-46e7-8fc2-44af3bb36d8b';
     closeTrigger.addEventListener('click', () => mediaConnection.close(true));
   });
 
-//  peer.once('open', id => (localId.textContent = id));
-//--------
+//■サーバーと疎通確認・自分のID取得
   peer.once('open', id => {
     localId.textContent = id;
 
-peer.listAllPeers(function(list){
+//■IDリスト取得
+    peer.listAllPeers(function(list){
 
-list.forEach(function(e, i) {
-if(e!=localId.textContent){
-var sl = document.getElementById("sel1");
-var opt = document.createElement('option');
-opt.setAttribute('value', e);
-opt.innerHTML = e;
-sl.appendChild(opt);
-}
-document.getElementById("js-remote-id").value = document.getElementById("sel1").value;
-});
+      list.forEach(function(e, i) {
+        if(e!=localId.textContent){
+          var sl = document.getElementById("sel1");
+          var opt = document.createElement('option');
+          opt.setAttribute('value', e);
+          opt.innerHTML = e;
+          sl.appendChild(opt);
+        }//if
+        document.getElementById("js-remote-id").value = document.getElementById("sel1").value;
+      });//list.forEach
 
-});
+    });//peer.listAllPeers
     
-  });
-//--------
+  });//peer.once
 
 
 
-  // Register callee handler
+//■接続処理
   peer.on('call', mediaConnection => {
 
     const answerOption = {
@@ -152,9 +149,3 @@ document.getElementById("js-remote-id").value = document.getElementById("sel1").
 
 })();
 
-//--------
-function createSelectBox(){
-
-document.getElementById("js-remote-id").value = document.getElementById("sel1").value;
-};
-//--------
